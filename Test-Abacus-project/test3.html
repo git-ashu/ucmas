@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCMAS Abacus Program</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Header section */
+        .header {
+            position: relative;
+            background: url('./assets/abacus-header.jpg') no-repeat center center/cover;
+            height: 60vh;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header-content {
+            max-width: 800px;
+        }
+
+        .header-content h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #ffd700; /* Gold color for UCMAS name */
+        }
+
+        .header-content p {
+            font-size: 1.5em;
+        }
+
+        .form-container {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+            background: #00474b;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-container h2 {
+            color: white;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container form input,
+        .form-container form select {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1em;
+            outline: none;
+            width: calc(100% - 20px); /* Adjust width */
+        }
+
+        .form-container form input {
+            background: #e1e1e1;
+        }
+
+        .form-container form select {
+            background: #e1e1e1;
+            color: #333;
+        }
+
+        .form-container form button {
+            background: #ff9300;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .form-container form button:hover {
+            background: #e68a00;
+        }
+
+        /* Main content sections */
+        .content {
+            padding: 20px;
+            background: #fff;
+            margin-bottom: 20px;
+        }
+
+        .content h2 {
+            color: #50b3a2;
+        }
+
+        .content p {
+            margin-bottom: 1em;
+            line-height: 1.6;
+        }
+
+        .testimonials {
+            background: #e8491d;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .testimonials p {
+            font-style: italic;
+        }
+
+        .cta {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .cta a {
+            background: #50b3a2;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .locations {
+            text-align: center;
+            padding: 20px;
+            background: #f4f4f4;
+        }
+
+        .locations h2 {
+            color: #50b3a2;
+        }
+
+        .locations p {
+            font-size: 18px;
+        }
+
+        /* Footer section */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer a {
+            color: #50b3a2;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            .header {
+                height: 50vh;
+            }
+
+            .header-content h1 {
+                font-size: 2em;
+            }
+
+            .header-content p {
+                font-size: 1em;
+            }
+
+            .form-container {
+                width: 90%;
+                right: 5%;
+                top: 40%;
+                transform: translateY(-40%);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content h1 {
+                font-size: 1.5em;
+            }
+
+            .header-content p {
+                font-size: 0.9em;
+            }
+
+            .form-container {
+                width: 90%;
+                padding: 10px;
+                top: 30%;
+                transform: translateY(-30%);
+            }
+
+            .form-container form input,
+            .form-container form button,
+            .form-container form select {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="overlay">
+            <div class="header-content">
+                <h1>UCMAS</h1>
+                <p>Unlock Your Child's Potential</p>
+            </div>
+        </div>
+        <div class="form-container">
+            <h2>Speak to an admissions advisor today!</h2>
+            <form>
+                <input type="text" name="first-name" placeholder="First Name" required>
+                <input type="text" name="last-name" placeholder="Last Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <select name="education-level" required>
+                    <option value="" disabled selected>Select Current Education Level</option>
+                    <option value="Primary School">Primary School</option>
+                    <option value="Secondary School">Secondary School</option>
+                    <option value="High School">High School</option>
+                    <option value="Graduate">Graduate</option>
+                    <option value="Other">Other</option>
+                </select>
+                <button type="submit">Give me a call</button>
+            </form>
+        </div>
+    </header>
+
+    <main>
+        <section class="content">
+            <div class="container">
+                <h2>Why Choose UCMAS?</h2>
+                <p>UCMAS is an Abacus-based Brain Development Program for children aged 4-13 years. With its unique Abacus technique, the UCMAS Program makes learning easy, engaging, and exciting for children.</p>
+                <p>In more than 80 countries, UCMAS has successfully empowered 3 million+ children with better skills & self-confidence to succeed.</p>
+                <p>It promotes Whole Brain Development that stimulates both hemispheres of the brain using an innovative visual arithmetic program utilizing the ABACUS as our major tool. By learning to perform Mental Calculations quickly and accurately, students aged 4-13 expand their mental capacity and develop skills such as Multi-tasking, Time Management, Memory, Concentration, and Problem-Solving Ability – skills that are crucial for success in all areas of life as well as daily studies too.</p>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2>Testimonials</h2>
+                <p>"UCMAS has transformed my child's learning experience. She is more confident and performs exceptionally well in her studies." - Parent</p>
+                <p>"The skills my son has developed through UCMAS are incredible. He is now more focused and manages his time efficiently." - Parent</p>
+            </div>
+        </section>
+
+        <section class="locations">
+            <div class="container">
+                <h2>Available Locations </h2>
+                <p>Vasind, Titwala, Diva</p>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2>Join the UCMAS Family</h2>
+                <p>Empower your child with better skills and self-confidence to succeed in all areas of life and daily studies.</p>
+                <a href="https://example.com/contact">Enroll Now</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Contact Us: <a href="mailto:ucmas.vasind@gmail.com">ucmas.vasind@gmail.com</a> | +91 816-994-8294</p>
+            <p>Follow Us: <a href="https://www.facebook.com/profile.php?id=100092255757661&mibextid=ZbWKwL">Facebook</a> |  <a href="https://www.instagram.com/ucmas_vasind?igsh=ZGJoMXpuMnlveHAy">Instagram</a></p>
+            <p>&copy; 2024 UCMAS. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
