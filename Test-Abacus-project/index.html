@@ -7,6 +7,9 @@
     <!-- <link rel="stylesheet" href="styles.css"> -->
     <style>
         /* General styling */
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -243,7 +246,7 @@
         </div>
         <div class="form-container">
             <h2>Speak to an admissions advisor today!</h2>
-            <form method="post" action="" name="contact-form">
+            <form method="post" action="" name="contact-form" id="enroll-form">
                 <input type="text" name="first-name" placeholder="First Name" required>
                 <input type="text" name="last-name" placeholder="Last Name" required>
                 <input type="email" name="email" placeholder="Email" required>
@@ -290,7 +293,7 @@
             <div class="container">
                 <h2>Join the UCMAS Family</h2>
                 <p>Empower your child with better skills and self-confidence to succeed in all areas of life and daily studies.</p>
-                <a href="https://example.com/contact">Enroll Now</a>
+                <a href="#enroll-form">Enroll Now</a>
             </div>
         </section>
     </main>
@@ -304,4 +307,10 @@
     </footer>
 </body>
 <script src="google_sheet.js"></script>
+<script>
+    document.querySelector('.cta a').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector('#enroll-form').scrollIntoView({ behavior: 'smooth' });
+    });
+    </script>
 </html>
